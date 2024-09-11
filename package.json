@@ -1,0 +1,9 @@
+{
+  "description": "",
+  "scripts": {
+    "serve": "node server.js"
+  },
+  "devDependencies": {
+    "express": "^4.20.0"
+  }
+}
