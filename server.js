@@ -7,7 +7,9 @@ let port = 3000
 
 
 app.use(express.json())
+// middelware setup
 
+app.use(express.urlencoded({extended: false}))
 
 
 app.get('/', (req,res) => {
@@ -52,6 +54,7 @@ app.post('/products', async (req,res) => {
   }
 })
 
+
 /// update
 
 app.put('/products/:id', async (req,res) => {
@@ -61,7 +64,7 @@ app.put('/products/:id', async (req,res) => {
       const product = await Product.findByIdAndUpdate(id, req.body)
         // No product founded
         if(!product) {
-            return res.status(404).json(message, `Cannot find the id: ${id}`)
+            return res.status(404).json({message: `Cannot find the id: ${id}`})
         } else {
             const updatedProduct = await Product.findById(id)
             res.status(200).json(updatedProduct)
