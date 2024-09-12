@@ -12,7 +12,6 @@ router.get('/:id', getProduct )
 // add a  product
 router.post('/', createPruduct)
 
-
 /// update a specific product
 router.put('/:id', updateProduct )
 
